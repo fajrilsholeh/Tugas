@@ -1,0 +1,35 @@
+# Input
+print("SELAMAT DATANG DI NIAGA!")
+nama = input("masukan nama anda :")
+kartu_member = input("Apakah Anda punya kartu member? (ya/tidak): ").strip().lower()
+belanja = float(input("Masukkan total belanja Anda (Rp): "))
+
+# variabel
+diskon_persen = 0
+diskon = 0
+
+# Logika perhitungan diskon
+if kartu_member == "ya":
+    if belanja > 500000:
+        diskon_persen = 0.1 * belanja
+    if belanja > 100000 and 499999 :
+        diskon_persen = 0.05 * belanja
+    else: belanja < 100000
+    diskon_persen = 0.3 * belanja
+         
+else:
+    if belanja > 100000 :
+        diskon_persen = 0.03 * belanja
+    else:
+        print("Maaf anda tidak dapat diskon :).") 
+
+diskon = diskon_persen -(belanja * diskon)
+total_bayar = belanja - diskon
+
+# Output hasil
+print("\n===== Detail Transaksi NIAGA =====")
+print(f"nama pelanggan : {nama}")
+print(f"Total Belanja : Rp{belanja:,.0f}")
+print(f"Diskon Persen : {diskon_persen}")
+print(f"Diskon        : Rp{diskon:,.0f}")
+print(f"Bayar         : Rp{total_bayar:,.0f}")
